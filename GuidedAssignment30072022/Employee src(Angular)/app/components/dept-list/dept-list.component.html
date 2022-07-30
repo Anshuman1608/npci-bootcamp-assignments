@@ -1,0 +1,37 @@
+<div class="container" style="margin-top: 30px; ">
+  <h2 style="text-align: center; margin-bottom: 30px;">Department List</h2>
+  <table class = "table table-bordered table-striped">
+    <tr>
+      <th>Department Number</th>
+      <th>Department Name</th>
+      <th>Location</th>
+    </tr>
+    <tr *ngFor = "let temp of departments">
+      <td>{{temp.deptNo}}</td>
+      <td>{{temp.deptName}}</td>
+      <td>{{temp.location}}</td>
+    </tr>
+  </table>
+</div>
+<div class="container">
+  <h2>Data Entry of Department</h2>
+  <form #deptData  = "ngForm" (ngSubmit) = "onSubmit()">
+    <div class="row">
+      <div class="col-sm-3"><label for="">Department Number</label></div>
+      <div class="col-sm-6"><input type="text" name="deptNo" id="" [(ngModel)] = "formModel.deptNo"></div>
+    </div>&nbsp;
+    <div class="row">
+      <div class="col-sm-3"><label for="">Department Name</label></div>
+      <div class="col-sm-6"><input type="text" name="deptName" id="" [(ngModel)] = "formModel.deptName"></div>
+    </div>&nbsp;
+    <div class="row">
+      <div class="col-sm-3"><label for="">Location</label></div>
+      <div class="col-sm-6"><input type="text" name="location" id="" [(ngModel)] = "formModel.location"></div>
+    </div>&nbsp;
+    <div class="row">
+      <div class="col-sm-8"><input type="submit" value="Submit" name="submit" class="btn btn-primary"></div>
+      </div>
+  </form>
+</div>
+
+
