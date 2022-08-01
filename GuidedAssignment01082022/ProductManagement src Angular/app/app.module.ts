@@ -11,13 +11,14 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddCartComponent } from './components/add-cart/add-cart.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const route : Routes = [
   {path : '',component : WelcomeComponent},
   {path : 'shop', component : ProductListComponent},
   {path : 'categories', component : CategoryListComponent},
   {path : 'merchant', component : AddProductComponent},
-  {path : 'cart', component : AddCartComponent}
+  { path: 'cart', component: CartComponent },
 ]
 
 @NgModule({
@@ -27,7 +28,7 @@ const route : Routes = [
     ProductListComponent,
     CategoryListComponent,
     AddProductComponent,
-    AddCartComponent
+    CartComponent
   ],
   imports: [
     BrowserModule,

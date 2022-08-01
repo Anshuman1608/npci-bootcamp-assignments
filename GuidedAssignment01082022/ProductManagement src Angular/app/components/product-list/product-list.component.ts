@@ -2,19 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/common/product';
 import { ManagementService } from 'src/app/services/management.service';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-
   products : Product[]
   constructor(private service : ManagementService,
-    private route : Router) { }
-  formModel : Product = new Product(0,"","","",0,"",0,0,"","",0)
+    private route : Router,
+    private cartservice : CartService) { }
   ngOnInit(): void {
     this.listOfProducts()
+  }
+  addToCart(product: Product) {
+    this.cartservice.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 
   listOfProducts(){
@@ -27,9 +31,6 @@ export class ProductListComponent implements OnInit {
   }
   gotoHome(){
     this.route.navigateByUrl("/")
-  }
-  addtoCart(){
-    this.route.navigateByUrl("/cart")
   }
 
 }
